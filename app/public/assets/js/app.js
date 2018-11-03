@@ -42,10 +42,11 @@ $('#addVault').on('click', function (event) {
         data: data
     }).then(function (response) {
         console.log(response);
-        $(inputForm).reset;
-        // $(entryName).val() = '';
-        // $(entryLink).val() = '';
-        // $(entryUsername).val() = '';
-        // $(entryPassword).val() = '';
+        // $(inputForm).reset;
+        window.location.replace('/api/secret');
+        $(entryName).val('');
+        $(entryLink).val('');
+        $(entryUsername).val('');
+        $(entryPassword).val('');
     })
 });

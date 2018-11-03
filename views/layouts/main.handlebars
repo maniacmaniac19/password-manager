@@ -43,14 +43,14 @@
             <div class="modal-body">
               <form class="inputForm">
                   <p>Name:</p>
-                    <input type="text" id="entryName" name="Name" placeholder="Name">
+                    <input type="text" id="entryName" class="required" name="Name" placeholder="Name">
                     <p>URL:</p>
-                    <input type="url" id="entryLink" name="Link" placeholder="URL">
+                    <input type="url" id="entryLink" class="required" name="Link" placeholder="URL">
                     <p>Username:</p>
-                    <input type="text" id="entryUsername" name="Username" placeholder="Username">
+                    <input type="text" id="entryUsername" class="required" name="Username" placeholder="Username">
                     <div class="form-group pwdToggle">
                             <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
-                            <input class="form-control form-control-sm pwd" id="entryPassword" type="password" >
+                            <input class="form-control required form-control-sm pwd" id="entryPassword" type="password" >
                             <input type="button" class="btn btn-primary btn-sm showPwd" value="Show"><br>
                         </div>
                     <input type="button" value="Generate"class="btn btn-primary btn-sm" id="generate">
