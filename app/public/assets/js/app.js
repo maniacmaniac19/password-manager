@@ -1,42 +1,20 @@
 
-$.ajax({
-    method: "GET",
-    url: '/api/users'
-}).then(function () {
-    console.log("hello world");
-});
-
-$
-
-
-document.getElementById("showPassword").addEventListener("click", function(e){
-    e.preventDefault();
-    console.log('switch password')
-    let pwd = document.getElementById("entryPassword");
-    if(pwd.getAttribute("type")==="password"){
-        pwd.setAttribute("type","text");
-    } else {
-        pwd.setAttribute("type","password");
+$(".showPwd").on("click", function(event){
+    event.preventDefault();
+    let pwd = $(this).closest(".pwdToggle").find(".pwd").attr("type");
+    console.log(pwd);
+    if(pwd === "password"){
+        $(this).closest(".pwdToggle").find(".pwd").attr("type", "text");
     }
-});
+    else{
+        $(this).closest(".pwdToggle").find(".pwd").attr("type", "password");
+    }
+ })
 
-//TODO Have Andrew assist me with the page change
-// $('#showVault').on('click', function (event) {
-//     event.preventDefault();
-//     console.log("button was clicked")
-//     $.ajax({
-//         method: "GET",
-//         url: '/api/secrets'
-//     }).then(function () {
-//         res.json(response)
-//         console.log("page should change")
-//     });
-// });
+ $("#triggerModal").on("click", function(event){
+    event.preventDefault();
+ });
 
-// $(clipboard.on('click', function(event){
-//     event.preventDefault();
-//     console.log("Copied to clipboard")
-// }));
 
 
 
@@ -58,36 +36,16 @@ $('#addVault').on('click', function (event) {
         password: $(entryPassword).val()
     }
     console.log(data)
-        console.log("this happened")
     $.ajax({
         method: "POST",
         url: '/api/secret',
         data: data
     }).then(function (response) {
-        console.log("switch pages")
-        console.log(response)
+        console.log(response);
+        $(inputForm).reset;
+        // $(entryName).val() = '';
+        // $(entryLink).val() = '';
+        // $(entryUsername).val() = '';
+        // $(entryPassword).val() = '';
     })
-});
-
-
-document.getElementById("showPassword").addEventListener("click", function(e){
-    e.preventDefault();
-    console.log('switch password')
-    let pwd = document.getElementById("entryPassword");
-    if(pwd.getAttribute("type")==="password"){
-        pwd.setAttribute("type","text");
-    } else {
-        pwd.setAttribute("type","password");
-    }
-});
-
-document.getElementById("showPwd").addEventListener("click", function(e){
-    e.preventDefault();
-    console.log('switch password')
-    let pwd = document.getElementById("pwd");
-    if(pwd.getAttribute("type")==="password"){
-        pwd.setAttribute("type","text");
-    } else {
-        pwd.setAttribute("type","password");
-    }
 });
