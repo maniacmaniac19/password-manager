@@ -23,9 +23,19 @@ nav{
     padding: 20px;
 }
 
-#plusSign{
-    float: right;
-    width: 100px;
+#stmt{
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+footer {
+    margin:auto;
+    position: fixed;
+    height: 85px;
+    bottom: 0;
+    width: 100%;
+    font-family: 'EB Garamond', serif;
 }
 
 

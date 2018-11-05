@@ -25,7 +25,9 @@
     <i class="far fa-plus-square" data-toggle="modal" id="triggerModal" data-target="#addModal"></i>
   </nav>
   {{{ body }}}
-
+  <footer class="bg-primary">
+      <h1>Defend Yourself<br><i class="fas fa-shield-alt"></i></h1>
+  </footer>
   <div class="modal animated bounceInDown" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -44,6 +46,8 @@
             </div>
             <div>
             <label class="col-form-label col-form-label-sm" for="inputSmall">URL:</label><br>
+            <div class="input-group-prepend">
+        <span class="input-group-text">http://</span>
             <input type="url" id="entryLink" class="form-control required form-control-sm" name="Link" value="http://"><br>
             </div>
             <div>
@@ -57,9 +61,9 @@
                 <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
                 <div class="form-group">
                   <div class="input-group mb-3">
-                    <input class="form-control required form-control-sm pwd" id="entryPassword" type="password">
                     <div class="input-group-prepend">
         <span class="input-group-text"><i class="far fa-eye showPwd"><br></i></span>
+                    <input class="form-control required form-control-sm pwd" id="entryPassword" type="password">
                     </div>
 
                 </div>
@@ -77,6 +81,7 @@
       </div>
     </div>
   </div>
+ 
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
