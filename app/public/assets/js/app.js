@@ -51,6 +51,53 @@ $('#addVault').on('click', function (event) {
     })
 });
 
+$('#deletePwd').on('click', function (event) {
+    event.preventDefault();
+    console.log("delete button was clicked")
+    // let data = {
+    //     name: $(entryName).val(),
+    //     url: $(entryLink).val(),
+    //     user_name: $(entryUsername).val(),
+    //     password: $(entryPassword).val()
+    // }
+    // console.log(data)
+    // console.log(data)
+    // $.ajax({
+    //     method: "POST",
+    //     url: '/secret',
+    //     data: data
+    // }).then(function (response) {
+    //     // console.log(response);
+    //     // $(inputForm).reset;
+    //     window.location.replace('/secret');
+    //     $(entryName).val('');
+    //     $(entryLink).val('');
+    //     $(entryUsername).val('');
+    //     $(entryPassword).val('');
+    // })
+});
+
+$('#updatePwd').on('click', function (event) {
+    event.preventDefault();
+    console.log("update button was clicked")
+    let data = {
+        // name: $(nameChange).val(),
+        url: $(urlChange).val(),
+        user_name: $(usernameChange).val(),
+        password: $(passwordChange).val()
+    }
+    console.log(data)
+    $.ajax({
+        method: "PUT",
+        url: '/secret/:id',
+        data: data
+    }).then(function (response) {
+        console.log('getting somewhere');
+        console.log(response);
+        });
+});
+
+// Generate button - generates string in base 36 and slices off last 10 digits to create a random string
 $('#generate').on('click', function (event) {
     event.preventDefault();
     console.log("button was clicked")
