@@ -2,77 +2,91 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vault</title>
-    <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css"
-    <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Jura" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Strongroom</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+  <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/css/animate.css">
+  <link href="https://fonts.googleapis.com/css?family=EB+Garamond|Jura" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand text1" href="/"><h3>Vault</h3></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand text1" href="/">
+      <h1><i class="fas fa-chess-rook"></i>Strongroom</h1>
+    </a>
+    
+    <i class="far fa-plus-square" data-toggle="modal" id="triggerModal" data-target="#addModal"></i>
+  </nav>
+  {{{ body }}}
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-secondary" data-toggle="modal" id="triggerModal" data-target="#addModal">Add to Vault</button>
-    </form>
-  </div>
-</nav>
-{{{ body }}}
+  <div class="modal animated bounceInDown" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addModalLabel">Add new entry</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form class="inputForm">
+            <div>
+            <label class="col-form-label col-form-label-sm" for="inputSmall">Name:</label><br>
+            <input type="text" id="entryName" class="form-control required form-control-sm" name="Name" placeholder="Name"><br>
+            </div>
+            <div>
+            <label class="col-form-label col-form-label-sm" for="inputSmall">URL:</label><br>
+            <input type="url" id="entryLink" class="form-control required form-control-sm" name="Link" value="http://"><br>
+            </div>
+            <div>
+            <label class="col-form-label col-form-label-sm" for="inputSmall">Username:</label><br>
+            <input type="text" id="entryUsername" class="form-control required form-control-sm" name="Username" placeholder="Username">
+            </div><br>
 
-<div class="modal" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="addModalLabel">Add new entry</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form class="inputForm">
-                  <p>Name:</p>
-                    <input type="text" id="entryName" class="required" name="Name" placeholder="Name">
-                    <p>URL:</p>
-                    <input type="url" id="entryLink" class="required" name="Link" placeholder="URL">
-                    <p>Username:</p>
-                    <input type="text" id="entryUsername" class="required" name="Username" placeholder="Username">
-                    <div class="form-group pwdToggle">
-                            <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
-                            <input class="form-control required form-control-sm pwd" id="entryPassword" type="password" >
-                            <input type="button" class="btn btn-primary btn-sm showPwd" value="Show"><br>
-                        </div>
-                    <input type="button" value="Generate"class="btn btn-primary btn-sm" id="generate">
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <a href="/api/secret"></a><button type="button" id="addVault" class="btn btn-primary" data-dismiss="modal">Save changes</button></a>
-            </div>
-          </div>
+
+
+              <div class="form-group pwdToggle">
+                <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <input class="form-control required form-control-sm pwd" id="entryPassword" type="password">
+                    <div class="input-group-prepend">
+        <span class="input-group-text"><i class="far fa-eye showPwd"><br></i></span>
+                    </div>
+
+                </div>
+                  </div>
+                </div>
+                          
+            <input type="button" value="Generate" class="btn btn-primary btn-sm" id="generate">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="/secret"><button type="button" id="addVault" class="btn btn-primary" data-dismiss="modal">Save
+            changes</button></a>
         </div>
       </div>
+    </div>
+  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
-    <script src="/assets/js/app.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+  <script src="/assets/js/app.js"></script>
 </body>
 
 </html>

@@ -8,22 +8,26 @@ router.get('/', (req, res) =>{
     res.render('home');
 });
 
-router.get('/api/secret', (req, res) => {
-    let data ={}
+router.get('/secret', (req, res) => {
+    let deData =[]
     db.pword_data.findAll().then(pword => {
         JSON.stringify(pword, null, 2);  
         for(i=0; i < pword.length; i++){
             console.log(pword[i].dataValues);
             let de = en.decrypt(pword[i].dataValues.password);
             data = {
+                id: pword[i].dataValues.id,
+                user_name: pword[i].dataValues.user_name,
                 name: pword[i].dataValues.name,
                 url: pword[i].dataValues.url,
                 password: de,
         }     
-        console.log(data);
+        deData.push(data)
+        // console.log(data);
         }
-        // res.render('secrets', { data });
-        res.render('secrets', { pword});
+        console.log(deData);
+        res.render('secrets', { deData });
+        // res.render('secrets', { pword});
     });
 });
 

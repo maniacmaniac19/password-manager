@@ -3,7 +3,9 @@
 // Nodejs encryption with CTR
 var crypto = require('crypto'),
     algorithm = 'aes-256-ctr',
+    // algorithm = process.env.algorithm;
     password = 'd6F3Efeq';
+    // password = process.env.password;
 
 module.exports = {
     encrypt: function (text) {

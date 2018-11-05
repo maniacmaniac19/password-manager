@@ -2,7 +2,7 @@
 $(".showPwd").on("click", function(event){
     event.preventDefault();
     let pwd = $(this).closest(".pwdToggle").find(".pwd").attr("type");
-    console.log(pwd);
+    // console.log(pwd);
     if(pwd === "password"){
         $(this).closest(".pwdToggle").find(".pwd").attr("type", "text");
     }
@@ -10,7 +10,6 @@ $(".showPwd").on("click", function(event){
         $(this).closest(".pwdToggle").find(".pwd").attr("type", "password");
     }
  })
-
  $("#triggerModal").on("click", function(event){
     event.preventDefault();
  });
@@ -36,17 +35,25 @@ $('#addVault').on('click', function (event) {
         password: $(entryPassword).val()
     }
     console.log(data)
+    console.log(data)
     $.ajax({
         method: "POST",
-        url: '/api/secret',
+        url: '/secret',
         data: data
     }).then(function (response) {
-        console.log(response);
+        // console.log(response);
         // $(inputForm).reset;
-        window.location.replace('/api/secret');
+        window.location.replace('/secret');
         $(entryName).val('');
         $(entryLink).val('');
         $(entryUsername).val('');
         $(entryPassword).val('');
     })
+});
+
+$('#generate').on('click', function (event) {
+    event.preventDefault();
+    console.log("button was clicked")
+    let random = $(entryPassword).val(Math.random().toString(36).slice(-10))
+   
 });

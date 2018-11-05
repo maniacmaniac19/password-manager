@@ -1,5 +1,6 @@
 body{
     font-family: 'Jura', sans-serif;
+    background-image: url('../images/brickwall.png');
 }
 
 h1{
@@ -8,10 +9,26 @@ h1{
     text-align: center;
 }
 
+h4{
+    font-weight: bolder;
+}
+
 nav{
     margin-bottom: 15px;
     font-family: 'EB Garamond', serif;
 }
+
+.panel-body{
+    margin: 0, 10px, 10px, 10px;
+    padding: 20px;
+}
+
+#plusSign{
+    float: right;
+    width: 100px;
+}
+
+
 
 
 
