@@ -43,6 +43,7 @@ router.delete('/secret/:id', function (req, res) {
 		}
 	  }).then(function (response){
 		  console.log("DELETED")
+		  res.json(response)
 	  });
 		});
 
