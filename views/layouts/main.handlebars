@@ -25,9 +25,9 @@
     <i class="far fa-plus-square" data-toggle="modal" id="triggerModal" data-target="#addModal"></i>
   </nav>
   {{{ body }}}
-  <footer class="bg-primary">
+  {{!-- <footer class="bg-primary">
       <h1>Defend Yourself<br><i class="fas fa-shield-alt"></i></h1>
-  </footer>
+  </footer> --}}
   <div class="modal animated bounceInDown" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -40,43 +40,39 @@
         </div>
         <div class="modal-body">
           <form class="inputForm">
-            <div>
+
+            <div class="form-group ">
             <label class="col-form-label col-form-label-sm" for="inputSmall">Name:</label><br>
-            <input type="text" id="entryName" class="form-control required form-control-sm" name="Name" placeholder="Name"><br>
+            <input type="text" id="entryName" class="form-control form-control-sm" name="Name" placeholder="Name">
             </div>
-            <div>
-            <label class="col-form-label col-form-label-sm" for="inputSmall">URL:</label><br>
-            <div class="input-group-prepend">
-        <span class="input-group-text">http://</span>
-            <input type="url" id="entryLink" class="form-control required form-control-sm" name="Link" value="http://"><br>
+
+            <div class="form-group">
+            <label class="col-form-label col-form-label-sm" for="inputSmall">URL:</label>           
+            <input type="url" id="entryLink" class="form-control form-control-sm" name="Link" value="http://">
             </div>
-            <div>
+
+            <div class="form-group">
             <label class="col-form-label col-form-label-sm" for="inputSmall">Username:</label><br>
-            <input type="text" id="entryUsername" class="form-control required form-control-sm" name="Username" placeholder="Username">
-            </div><br>
+            <input type="text" id="entryUsername" class="form-control form-control-sm" name="Username" placeholder="Username">
+            </div>
 
-
-
-              <div class="form-group pwdToggle">
-                <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
-                <div class="form-group">
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-        <span class="input-group-text"><i class="far fa-eye showPwd"><br></i></span>
-                    <input class="form-control required form-control-sm pwd" id="entryPassword" type="password">
-                    </div>
-
+            <div class="form-group pwdToggle">
+              <label class="col-form-label col-form-label-sm" for="inputSmall">Password</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="far fa-eye showPwd"></i></span>
+                  <input class="form-control form-control-sm pwd" id="entryPassword" type="password">
                 </div>
-                  </div>
-                </div>
-                          
+              </div>
+            </div>
+            <form-group>             
             <input type="button" value="Generate" class="btn btn-primary btn-sm" id="generate">
+            </form-group> 
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a href="/secret"><button type="button" id="addVault" class="btn btn-primary" data-dismiss="modal">Save
-            changes</button></a>
+          <a href="/secret"><button type="button" id="addVault" class="btn btn-primary" data-dismiss="modal">Save changes</button></a>
         </div>
       </div>
     </div>

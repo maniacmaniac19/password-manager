@@ -18,13 +18,17 @@ $('#addVault').on('click', function (event) {
     event.preventDefault();
     console.log("button was clicked")
     let data = {
-        name: $(entryName).val(),
-        url: $(entryLink).val(),
-        user_name: $(entryUsername).val(),
-        password: $(entryPassword).val()
+        name: $(entryName).val().trim(),
+        url: $(entryLink).val().trim(),
+        user_name: $(entryUsername).val().trim(),
+        password: $(entryPassword).val().trim()
+
     }
-    console.log(data)
-    console.log(data)
+    if(data.name.length<5){
+
+        return console.log("Error");
+    }
+    console.log(data);
     $.ajax({
         method: "POST",
         url: '/secret',
@@ -33,6 +37,7 @@ $('#addVault').on('click', function (event) {
         // console.log(response);
         // $(inputForm).reset;
         window.location.replace('/secret');
+        // window.location.reload();
         $(entryName).val('');
         $(entryLink).val('');
         $(entryUsername).val('');
@@ -40,11 +45,11 @@ $('#addVault').on('click', function (event) {
     })
 });
 
-$('#deletePwd').on('click', function (event) {
+$('.deletePwd').on('click', function (event) {
     event.preventDefault();
     console.log("delete button was clicked");
     
-    let id = $(this).data("#id");
+    let id = $(this).data("id");
     console.log(id);
     console.log(`this is the ${id}`)
     $.ajax({
@@ -52,21 +57,24 @@ $('#deletePwd').on('click', function (event) {
         url: `/secret/${id}`,
         // data: data
     }).then(function (response) {
-        console.log("deleting stuff")
-        console.log(response)
+        console.log("deleting stuff");
+        console.log(response);
+        location.reload();
+        // window.location.reload()
+        // window.location.replace('/secret');
     })
 });
 
-$('#updatePwd').on('click', function (event) {
+$('.updatePwd').on('click', function (event) {
     event.preventDefault();
     console.log("update button was clicked")
     let id = $(this).data("id");
     console.log(id)
     let data = {
         // name: $(nameChange).val(),
-        url: $(urlChange).val(),
-        user_name: $(usernameChange).val(),
-        password: $(passwordChange).val()
+        url: $(".urlChange-"+id).val(),
+        user_name: $(".usernameChange-"+id).val(),
+        password: $(".passwordChange-"+id).val()
     }
     console.log(data)
     $.ajax({
@@ -76,6 +84,7 @@ $('#updatePwd').on('click', function (event) {
     }).then(function (response) {
         console.log('getting somewhere');
         console.log(response);
+        window.location.reload();
         });
 });
 
