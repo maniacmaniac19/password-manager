@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Strongroom</title>
-  <link rel="stylesheet" href="https://bootswatch.com/4/darkly/bootstrap.min.css">
+  
   <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
@@ -44,16 +44,19 @@
             <div class="form-group ">
             <label class="col-form-label col-form-label-sm" for="inputSmall">Name:</label><br>
             <input type="text" id="entryName" class="form-control form-control-sm" name="Name" placeholder="Name">
+            <p id="p1" class="invalid-feedback text-danger"></p>
             </div>
 
             <div class="form-group">
             <label class="col-form-label col-form-label-sm" for="inputSmall">URL:</label>           
-            <input type="url" id="entryLink" class="form-control form-control-sm" name="Link" value="http://">
+            <input type="url" id="entryLink" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top" class="form-control form-control-sm" name="Link" value="http://">
+            <p id="p2" class="invalid-feedback text-danger"></p>
             </div>
 
             <div class="form-group">
             <label class="col-form-label col-form-label-sm" for="inputSmall">Username:</label><br>
-            <input type="text" id="entryUsername" class="form-control form-control-sm" name="Username" placeholder="Username">
+            <input type="text" id="entryUsername"  class="form-control form-control-sm" name="Username" placeholder="Username">
+            <p id="p3" class="invalid-feedback text-danger"></p>
             </div>
 
             <div class="form-group pwdToggle">
@@ -61,8 +64,9 @@
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="far fa-eye showPwd"></i></span>
-                  <input class="form-control form-control-sm pwd" id="entryPassword" type="password">
+                  <input class="form-control form-control-sm pwd" id="entryPassword" placeholder="Password" type="password">
                 </div>
+                <p id="p4" class="invalid-feedback text-danger"></p>
               </div>
             </div>
             <form-group>             
@@ -72,7 +76,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <a href="/secret"><button type="button" id="addVault" class="btn btn-primary" data-dismiss="modal">Save changes</button></a>
+          <a 
+          {{!-- href="/secret" --}}
+          ><button type="button" id="addVault" class="btn btn-primary">Save changes</button></a>
         </div>
       </div>
     </div>

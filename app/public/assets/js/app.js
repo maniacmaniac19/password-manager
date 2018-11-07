@@ -22,13 +22,27 @@ $('#addVault').on('click', function (event) {
         url: $(entryLink).val().trim(),
         user_name: $(entryUsername).val().trim(),
         password: $(entryPassword).val().trim()
-
+    };
+    console.log('time for validation');
+    console.log(data.name.length);
+    if(data.name.length<=0){
+        console.log('validation!');
+      $('#p1').text("Field cannot be empty.").toggleClass("invalid-feedback");
+      return false;  
+    };
+     if(data.user_name.length<=0){
+        console.log('validation!');
+      $('#p3').text("Field cannot be empty.").toggleClass("invalid-feedback");
+      return false; 
+    };
+     if(data.password.length<=0){
+        console.log('validation!');
+      $('#p4').text("Field cannot be empty.").toggleClass("invalid-feedback");
+      return false; 
     }
-    if(data.name.length<5){
 
-        return console.log("Error");
-    }
-    console.log(data);
+        
+    console.log('no validation');
     $.ajax({
         method: "POST",
         url: '/secret',

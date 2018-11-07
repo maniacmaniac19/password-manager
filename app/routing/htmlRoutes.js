@@ -3,6 +3,7 @@ const path = require('path');
 const router = express.Router();
 const db = require('../../models');
 const en = require('../../crypto');
+const secured = require('../../middleware/secured')
 
 router.get('/', (req, res) =>{
     res.render('home');
@@ -30,5 +31,15 @@ router.get('/secret', (req, res) => {
         // res.render('secrets', { pword});
     });
 });
+
+router.get('/user', secured(), function (req, res, next) {
+    const { _raw, _json, ...userProfile } = req.user;
+    res.render('user', {
+      userProfile: JSON.stringify(userProfile, null, 2),
+      title: 'Profile page'
+    });
+  });
+
+
 
 module.exports = router;
